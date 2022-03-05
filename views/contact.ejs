@@ -1,0 +1,103 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Feedback</li>
+  </ol>
+</nav>
+
+<!-- form start -->
+
+<div
+  class="form_container container-xxl px-md-5 bg bg-white container-fluid p-4 my-5"
+>
+  <form class="row g-3" method="post" action="/contact">
+    <% if(SubmitObj != ''){ %>
+    <div class="alert alert-success" role="alert"><%- SubmitObj %></div>
+    <% } %> <% if(ErrorObj != ''){ %>
+    <div class="alert alert-danger" role="alert">
+      <%- ErrorObj[0].message %>
+    </div>
+    <% } %>
+
+    <div class="col-4">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        placeholder="John Dane"
+      />
+    </div>
+    <div class="col-8">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        id="inputEmail4"
+        placeholder="Name@Example.com"
+      />
+    </div>
+
+    <div class="col-6">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input
+        type="text"
+        name="address"
+        class="form-control"
+        id="inputAddress"
+        placeholder="1234 Main St"
+      />
+    </div>
+    <div class="col-6">
+      <label for="inputAddress2" class="form-label">Address 2</label>
+      <input
+        type="text"
+        name="address2"
+        class="form-control"
+        id="inputAddress2"
+        placeholder="Locality, Landmark"
+      />
+    </div>
+    <div class="col-8">
+      <label for="inputAddress3" class="form-label">Address 3</label>
+      <input
+        type="text"
+        name="address3"
+        class="form-control"
+        id="inputAddress3"
+        placeholder="Apartment, studio, or floor"
+      />
+    </div>
+    <div class="col-4">
+      <label for="inputCity" class="form-label">City</label>
+      <input
+        type="text"
+        name="city"
+        class="form-control"
+        id="inputCity"
+        placeholder="e.g New York"
+      />
+    </div>
+    <div class="col-12">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Message</label
+      >
+      <textarea
+        class="form-control"
+        name="message"
+        id="exampleFormControlTextarea1"
+        placeholder="Start Writing...."
+        cols="30"
+        rows="6"
+      ></textarea>
+    </div>
+
+    <div class="col-12 mt-4">
+      <button type="submit" class="btn btn-primary">
+        Send Feedback &nbsp;<bi class="bi bi-send"></bi>
+      </button>
+    </div>
+  </form>
+</div>

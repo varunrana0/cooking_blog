@@ -1,0 +1,31 @@
+{
+  "name": "05-cooking-blog",
+  "version": "1.0.0",
+  "description": "Cooking blog App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "ejs",
+    "node",
+    "npm"
+  ],
+  "author": "varun rana",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

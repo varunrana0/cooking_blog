@@ -1,0 +1,151 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      Update Your Recipe
+    </li>
+  </ol>
+</nav>
+
+<% if(recipes !== ''){%>
+<div class="container-xxl px-md-5 bg bg-white container-fluid p-4 my-5">
+  <form
+    class="row g-3"
+    method="post"
+    action="/recipe/<%= recipes._id%>"
+    enctype="multipart/form-data"
+  >
+    <div class="col-12">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        placeholder="Pan Cakes"
+        value="<%= recipes.name %>"
+      />
+    </div>
+
+    <div class="col-4">
+      <label for="category" class="form-label">Category</label>
+      <input
+        type="text"
+        name="category"
+        class="form-control"
+        id="name"
+        placeholder="e.g; Russian"
+        value="<%= recipes.category%>"
+      />
+    </div>
+    <div class="col-2">
+      <label for="ratings" class="form-label">Rating</label>
+      <input
+        type="number"
+        name="ratings"
+        class="form-control"
+        id="name"
+        placeholder="4.5"
+        value="<%= recipes.ratings%>"
+      />
+    </div>
+    <div class="col-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        id="inputEmail4"
+        placeholder="Name@Example.com"
+        value="<%= recipes.email%>"
+      />
+    </div>
+    <div class="col-12">
+      <label for="ingredients" class="form-label">Ingredients</label>
+      <% if(recipes !== undefined || recipes !== ''){ %><%
+      recipes.ingredients.forEach(function (recipe, index){ %>
+      <div class="ingredientsList">
+        <div class="ingredientsDiv mb-1">
+          <input
+            type="text"
+            name="ingredients"
+            class="form-control"
+            id="inputIngredients"
+            placeholder="Example: Ice;"
+            value="<%= recipe %>"
+          />
+        </div>
+      </div>
+      <% })%><%}%>
+    </div>
+    <div class="col-12">
+      <button type="button" class="btn btn-primary rounded" id="addIngredients">
+        + Ingredients
+      </button>
+    </div>
+
+    <div class="col-12">
+      <label for="directions" class="form-label">Directions</label>
+
+      <% if(recipes !== undefined || recipes !== ''){ %><%
+      recipes.directions.forEach(function (recipe, index){ %>
+      <div class="directionsList">
+        <div class="directionsDiv mb-1">
+          <input
+            type="text"
+            name="directions"
+            class="form-control"
+            id="inputdirections"
+            placeholder="Example: Fill a medium pot with water and bring to a boil over medium heat;"
+            value="<%= recipe %>"
+          />
+        </div>
+      </div>
+      <% })%><%}%>
+    </div>
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-primary rounded"
+        id="addInstructions"
+      >
+        + Instructions
+      </button>
+    </div>
+
+    <div class="col-12">
+      <label for="image" class="form-label">Image</label>
+
+      <input
+        type="file"
+        name="image"
+        class="form-control"
+        accept="image/*"
+        placeholder="Choose a file"
+        value="<%= recipes.image %>"
+      />
+    </div>
+
+    <div class="col-12">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Description</label
+      >
+      <textarea
+        class="form-control"
+        name="description"
+        id="exampleFormControlTextarea1"
+        placeholder="Start Writing...."
+        cols="30"
+        rows="6"
+      >
+<%= recipes.description %>
+      </textarea>
+    </div>
+    <div class="col-12 mt-4">
+      <button type="submit" class="btn btn-primary" id="submitBtn">
+        Update &nbsp;<bi class="bi bi-send"></bi>
+      </button>
+    </div>
+  </form>
+</div>
+<% } %>

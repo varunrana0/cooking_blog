@@ -1,0 +1,218 @@
+<!-- hero section start -->
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+  <h1 class="display-4 fw-bold mb-3">
+    Huge collection of delicious recipe ideas.
+  </h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mt-4 mb-4">
+      Cooking, cookery, or culinary arts is the art, science, and craft of using
+      heat to prepare food for consumption. ... Cooking is done both by people
+      in their own dwellings and by professional cooks and chefs in restaurants
+      and other food establishments.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <a
+        href="/explore-latest"
+        type="button"
+        class="btn btn-warning btn-lg px-4 me-sm-3"
+      >
+        Explore Recipes
+      </a>
+      <a
+        href="/explore-random"
+        type="button"
+        class="btn btn-outline-secondary btn-lg px-4"
+      >
+        Explore Random Recipe
+      </a>
+    </div>
+  </div>
+  <div class="overflow-hidden" style="max-height: 30vh">
+    <div class="container px-5">
+      <img
+        src="/img/heroSection.jpg"
+        class="img-fluid border rounded-3 shadow-lg mb-4"
+        alt="Girls with food"
+        width="700"
+        height="500"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- hero section end -->
+
+<!-- all category section start -->
+
+<div class="categories row row-cols-2 row-cols-lg-6 g-2 g-lg-3">
+  <% if(categories !== ''){%> <% categories.forEach(function(category, index){
+  %>
+
+  <a
+    href="/categories/<%- category.name %>"
+    class="col text-center category__link"
+  >
+    <div class="category__img shadow">
+      <img src="/img/<%- category.image %> " alt="<%- category.name %> " />
+    </div>
+    <div class="pt-1"><%- category.name %></div>
+  </a>
+
+  <% })%> <% }else{%>
+  <p>No items Found</p>
+  <% }%>
+
+  <a href="/categories" class="col text-center category__link">
+    <div class="category__img category__hover shadow">
+      <img src="/img/view-all.jpg" alt="View All Categories" />
+    </div>
+    <div class="pt-1">View All</div>
+  </a>
+</div>
+
+<!--latest recipes sectio-->
+
+<section class="pb-4 pt-2">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Latest Recipes</h2>
+    <a href="/explore-latest" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if( food !== "" ){%> <% food.latest.forEach(function(recipe, index){ %>
+    <a href="/recipe/<%- recipe._id %> " class="col category__link text-center">
+      <div class="category__img--large shadow">
+        <img src="/uploads/<%- recipe.image%>" alt="<%- recipe.name%>" />
+      </div>
+      <div class="pt-1"><%- recipe.name%></div>
+    </a>
+    <% })%> <% }else{%>
+    <p>No items Found</p>
+    <% }%>
+  </div>
+</section>
+
+<section class="pb-4 pt-2">
+  <div class="d-flex mb-3 align-items-center">
+    <h2>Thai Recipes</h2>
+    <a href="/categories/thai" class="ms-auto">View More</a>
+  </div>
+
+  <div class="thai_recipes row row-cols-5 row-cols-lg-5 g-2 g-lg-3">
+    <% if(typeof food.thai !== "undefined" && food.thai.length > 0){%> <%
+    food.thai.forEach(function(recipe, index){ %>
+
+    <a href="/recipe/<%- recipe._id %> " class="col category__link text-center">
+      <div class="category__img--large shadow">
+        <img src="/uploads/<%- recipe.image%>" alt="<%- recipe.name%>" />
+      </div>
+      <div class="pt-1"><%- recipe.name%></div>
+    </a>
+
+    <% })%> <% }else{%>
+    <p>No items Found</p>
+    <% }%>
+  </div>
+</section>
+
+<section class="pb-4 pt-2">
+  <div class="d-flex mb-3 align-items-center">
+    <h2>Maxican Recipes</h2>
+    <a href="/categories/maxican" class="ms-auto">View More</a>
+  </div>
+  <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+    <% if(typeof food.maxican !== "undefined" && food.maxican.length > 0){%> <%
+    food.maxican.forEach(function(recipe, index){ %>
+
+    <a href="/recipe/<%- recipe._id %> " class="col category__link text-center">
+      <div class="category__img--large shadow">
+        <img src="/uploads/<%- recipe.image%>" alt="<%- recipe.name%>" />
+      </div>
+      <div class="pt-1"><%- recipe.name%></div>
+    </a>
+
+    <% })%> <% }else{%>
+    <p>No items Found</p>
+    <% }%>
+  </div>
+</section>
+
+<section class="pb-4 pt-2">
+  <div class="d-flex mb-3 align-items-center">
+    <h2>Indian Recipes</h2>
+    <a href="/categories/indian" class="ms-auto">View More</a>
+  </div>
+  <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+    <% if(typeof food.indian !== "undefined" && food.indian.length > 0){%> <%
+    food.indian.forEach(function(recipe, index){ %>
+
+    <a href="/recipe/<%- recipe._id %> " class="col category__link text-center">
+      <div class="category__img--large shadow">
+        <img src="/uploads/<%- recipe.image%>" alt="<%- recipe.name%>" />
+      </div>
+      <div class="pt-1"><%- recipe.name%></div>
+    </a>
+
+    <% })%> <% }else{%>
+    <p>No items Found</p>
+    <% }%>
+  </div>
+</section>
+
+<section class="pb-4 pt-2">
+  <div class="d-flex mb-3 align-items-center">
+    <h2>Italian Recipes</h2>
+    <a href="/categories/italian" class="ms-auto">View More</a>
+  </div>
+  <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+    <% if(typeof food.italian !== "undefined" && food.italian.length > 0){%> <%
+    food.italian.forEach(function(recipe, index){ %>
+
+    <a href="/recipe/<%- recipe._id %> " class="col category__link text-center">
+      <div class="category__img--large shadow">
+        <img src="/uploads/<%- recipe.image%>" alt="<%- recipe.name%>" />
+      </div>
+      <div class="pt-1"><%- recipe.name%></div>
+    </a>
+
+    <% })%> <% }else{%>
+    <p>No items Found</p>
+    <% }%>
+  </div>
+</section>
+
+<section class="pb-4 pt-2">
+  <div class="d-flex mb-3 align-items-center">
+    <h2>Russian Recipes</h2>
+    <a href="/recipes/russian" class="ms-auto">View More</a>
+  </div>
+  <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+    <% if(typeof food.russian !== "undefined" && food.russian.length > 0){%> <%
+    food.russian.forEach(function(recipe, index){ %>
+
+    <a href="/recipe/<%- recipe._id %> " class="col category__link text-center">
+      <div class="category__img--large shadow">
+        <img src="/uploads/<%- recipe.image%>" alt="<%- recipe.name%>" />
+      </div>
+      <div class="pt-1"><%- recipe.name%></div>
+    </a>
+
+    <% })%> <% }else{%>
+    <p>No items Found</p>
+    <% }%>
+  </div>
+</section>
+
+<section class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">Publish your recipe here for FREE today</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      Publish Your recipe in front of thousands of people for free.
+    </p>
+    <div class="d-grid g-2 d-sm-flex justify-content-center">
+      <a href="/submit-recipe" class="btn btn-warning btn-dark btn-lg"
+        >Submit Recipe</a
+      >
+    </div>
+  </div>
+</section>

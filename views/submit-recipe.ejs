@@ -1,0 +1,140 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      Submit Your Recipe
+    </li>
+  </ol>
+</nav>
+
+<div class="container-xxl px-md-5 bg bg-white container-fluid p-4 my-5">
+  <form
+    class="row g-3"
+    method="post"
+    action="/submit-recipe"
+    enctype="multipart/form-data"
+  >
+    <% if(infoSubmitObj != ''){ %>
+    <div class="alert alert-success" role="alert"><%- infoSubmitObj %></div>
+    <% } %> <% if(infoErrorObj != ''){ %>
+    <div class="alert alert-danger" role="alert">
+      <%- infoErrorObj[0].message %>
+    </div>
+    <% } %>
+
+    <div class="col-12">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        placeholder="Pan Cakes"
+      />
+    </div>
+
+    <div class="col-4">
+      <label for="category" class="form-label">Category</label>
+      <input
+        type="text"
+        name="category"
+        class="form-control"
+        id="name"
+        placeholder="e.g; Russian"
+      />
+    </div>
+    <div class="col-2">
+      <label for="ratings" class="form-label">Rating</label>
+      <input
+        type="text"
+        name="ratings"
+        class="form-control"
+        id="name"
+        placeholder="4.5"
+      />
+    </div>
+    <div class="col-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        id="inputEmail4"
+        placeholder="Name@Example.com"
+      />
+    </div>
+    <div class="col-12">
+      <label for="ingredients" class="form-label">Ingredients</label>
+      <div class="ingredientsList">
+        <div class="ingredientsDiv mb-1">
+          <input
+            type="text"
+            name="ingredients"
+            class="form-control"
+            id="inputIngredients"
+            placeholder="Example: Ice;"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="button" class="btn btn-primary rounded" id="addIngredients">
+        + Ingredients
+      </button>
+    </div>
+
+    <div class="col-12">
+      <label for="directions" class="form-label">Directions</label>
+      <div class="directionsList">
+        <div class="directionsDiv mb-1">
+          <input
+            type="text"
+            name="directions"
+            class="form-control"
+            id="inputdirections"
+            placeholder="Example: Fill a medium pot with water and bring to a boil over medium heat;"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-primary rounded"
+        id="addInstructions"
+      >
+        + Instructions
+      </button>
+    </div>
+
+    <div class="col-12">
+      <label for="image" class="form-label">Image</label>
+
+      <input
+        type="file"
+        name="image"
+        class="form-control"
+        accept="image/*"
+        placeholder="Choose a file"
+      />
+    </div>
+    <div class="col-12">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Description</label
+      >
+      <textarea
+        class="form-control"
+        name="description"
+        id="exampleFormControlTextarea1"
+        placeholder="Start Writing...."
+        cols="30"
+        rows="6"
+      ></textarea>
+    </div>
+    <div class="col-12 mt-4">
+      <button type="submit" class="btn btn-primary">
+        Submit Your Recipe &nbsp;<bi class="bi bi-send"></bi>
+      </button>
+    </div>
+  </form>
+</div>
